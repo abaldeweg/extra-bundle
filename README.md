@@ -1,6 +1,6 @@
 # baldeweg/extra-bundle
 
-This is the description of the package.
+Offers tools for management of users, testing and setup.
 
 ## Getting Started
 

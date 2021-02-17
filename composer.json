@@ -1,6 +1,6 @@
 {
   "name": "baldeweg/extra-bundle",
-  "description": "desc",
+  "description": "Offers tools for management of users, testing and setup.",
   "type": "symfony-bundle",
   "license": "MIT",
   "authors": [
