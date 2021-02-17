@@ -5,7 +5,7 @@ This is the description of the package.
 ## Getting Started
 
 ```shell
-composer req skeleton/framework
+composer req baldeweg/extra-bundle
 ```
 
 Activate the bundle in your `config/bundles.php`.
