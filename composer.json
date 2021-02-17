@@ -1,0 +1,43 @@
+{
+  "name": "baldeweg/extra-bundle",
+  "description": "desc",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "André Baldeweg",
+      "email": "a@baldeweg.org"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "doctrine/orm": "^2.8",
+    "symfony/config": "^5.2",
+    "symfony/console": "^5.2",
+    "symfony/dependency-injection": "^5.2",
+    "symfony/form": "^5.2",
+    "symfony/framework-bundle": "^5.2",
+    "symfony/http-foundation": "^5.2",
+    "symfony/http-kernel": "^5.2",
+    "symfony/maker-bundle": "^1.29",
+    "symfony/security-bundle": "^5.2"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.18",
+    "phpunit/phpunit": "^9.5",
+    "symfony/var-dumper": "^5.2"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Baldeweg\\Bundle\\ExtraBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Baldeweg\\Bundle\\ExtraBundle\\Tests\\": "tests/"
+    }
+  }
+}
