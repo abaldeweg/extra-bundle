@@ -20,12 +20,12 @@ Add optional routes to your `src/routes.yaml`. The `me` endpoint gives you some 
 
 ```yaml
 me:
-  path: /api/v1/me
+  path: /api/me
   controller: Baldeweg\Bundle\ExtraBundle\Service\MeUser::me
   methods: GET
 
 password:
-  path: /api/v1/password
+  path: /api/password
   controller: Baldeweg\Bundle\ExtraBundle\Service\PasswordUser::password
   methods: PUT
 ```
