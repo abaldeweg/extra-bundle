@@ -78,7 +78,11 @@ class PasswordUser
             $this->getDoctrine()->getManager()->flush();
 
             return new JsonResponse([
-                'msg' => 'The password was successfully changed!',
+                'id' => $this->getUser()->getId(),
+                'username' => $this->getUser()->getUsername(),
+                'roles' => $this->getUser()->getRoles(),
+                'isUser' => $this->isGranted('ROLE_USER'),
+                'isAdmin' => $this->isGranted('ROLE_ADMIN'),
             ]);
         }
 

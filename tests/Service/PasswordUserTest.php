@@ -10,7 +10,7 @@ class PasswordUserTest extends TestCase
     public function testPasswordUser()
     {
         $user = $this->getMockBuilder('\\Symfony\\Component\\Security\\Core\\User\\UserInterface')
-            ->setMethods(['setPassword', 'getRoles', 'getPassword', 'getSalt', 'getUsername', 'eraseCredentials'])
+            ->setMethods(['getId', 'setPassword', 'getRoles', 'getPassword', 'getSalt', 'getUsername', 'eraseCredentials'])
             ->disableOriginalConstructor()
             ->getMock();
         $user->method('getPassword')
@@ -72,9 +72,6 @@ class PasswordUserTest extends TestCase
 
         $response = json_decode($password->password($request)->getContent());
 
-        $this->assertEquals(
-            'The password was successfully changed!',
-            $response->msg
-        );
+        $this->assertIsObject($response);
     }
 }
