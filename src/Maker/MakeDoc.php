@@ -37,6 +37,7 @@ final class MakeDoc extends AbstractMaker
         }
         if (!is_file('bin/setup')) {
             copy(__DIR__.'/../Resources/templates/setup', 'bin/setup');
+            chmod('bin/setup', 0755);
         }
     }
 }
