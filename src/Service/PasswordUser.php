@@ -2,8 +2,8 @@
 
 namespace Baldeweg\Bundle\ExtraBundle\Service;
 
+use Baldeweg\Bundle\ExtraBundle\Form\PasswordType;
 use Doctrine\Persistence\ManagerRegistry;
-use ImmerIch\Core\Form\PasswordType;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
