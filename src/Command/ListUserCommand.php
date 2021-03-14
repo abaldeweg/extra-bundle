@@ -11,14 +11,9 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class ListUserCommand extends Command
 {
-    private EntityManagerInterface $em;
-    private ParameterBagInterface $params;
-
-    public function __construct(EntityManagerInterface $em, ParameterBagInterface $params)
+    public function __construct(private EntityManagerInterface $em, private ParameterBagInterface $params)
     {
         parent::__construct();
-        $this->em = $em;
-        $this->params = $params;
     }
 
     protected function configure(): void

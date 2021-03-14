@@ -13,19 +13,12 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class ResetPasswordUserCommand extends Command
 {
-    private EntityManagerInterface $em;
-    private UserPasswordEncoderInterface $encoder;
-    private ParameterBagInterface $params;
-
     public function __construct(
-        EntityManagerInterface $em,
-        UserPasswordEncoderInterface $encoder,
-        ParameterBagInterface $params
+        private EntityManagerInterface $em,
+        private UserPasswordEncoderInterface $encoder,
+        private ParameterBagInterface $params
     ) {
         parent::__construct();
-        $this->em = $em;
-        $this->encoder = $encoder;
-        $this->params = $params;
     }
 
     protected function configure(): void

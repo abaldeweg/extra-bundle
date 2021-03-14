@@ -35,7 +35,7 @@ trait ApiTestTrait
         return json_decode($client->getResponse()->getContent());
     }
 
-    protected function buildClient()
+    protected function buildClient(): void
     {
         $this->clientAdmin = static::createClient();
         $this->clientAdmin->request(

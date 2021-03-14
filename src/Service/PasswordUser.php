@@ -15,18 +15,13 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class PasswordUser
 {
-    private TokenStorageInterface $token;
-    private AuthorizationCheckerInterface $auth;
-    private ManagerRegistry $registry;
-    private FormFactoryInterface $form;
-
-    public function __construct(TokenStorageInterface $token, AuthorizationCheckerInterface $auth, UserPasswordEncoderInterface $encoder, ManagerRegistry $registry, FormFactoryInterface $form)
-    {
-        $this->token = $token;
-        $this->auth = $auth;
-        $this->encoder = $encoder;
-        $this->registry = $registry;
-        $this->form = $form;
+    public function __construct(
+        private TokenStorageInterface $token,
+        private AuthorizationCheckerInterface $auth,
+        private UserPasswordEncoderInterface $encoder,
+        private ManagerRegistry $registry,
+        private FormFactoryInterface $form
+    ) {
     }
 
     protected function getUser()

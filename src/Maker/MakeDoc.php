@@ -22,15 +22,15 @@ final class MakeDoc extends AbstractMaker
         return 'Generates some important files for the framework.';
     }
 
-    public function configureCommand(Command $command, InputConfiguration $inputConfig)
+    public function configureCommand(Command $command, InputConfiguration $inputConfig): void
     {
     }
 
-    public function configureDependencies(DependencyBuilder $dependencies)
+    public function configureDependencies(DependencyBuilder $dependencies): void
     {
     }
 
-    public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator)
+    public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator): void
     {
         if (!is_file('README.md')) {
             copy(__DIR__.'/../Resources/templates/README.md', 'README.md');

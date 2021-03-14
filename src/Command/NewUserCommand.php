@@ -12,16 +12,11 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class NewUserCommand extends Command
 {
-    private EntityManagerInterface $em;
-    private UserPasswordEncoderInterface $encoder;
-
     public function __construct(
-        EntityManagerInterface $em,
-        UserPasswordEncoderInterface $encoder
+        private EntityManagerInterface $em,
+        private UserPasswordEncoderInterface $encoder
     ) {
         parent::__construct();
-        $this->em = $em;
-        $this->encoder = $encoder;
     }
 
     protected function configure(): void
