@@ -1,4 +1,5 @@
 language: php
+dist: focal
 matrix:
     include:
         - php: 8.0
