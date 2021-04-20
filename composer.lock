@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a706ebef9750cd0340b99b0747ae19e3",
+    "content-hash": "986842e4d8c614532ae9f658e0398ca7",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -4587,16 +4587,16 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "1.4.6",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "f27e06cd9675801df441b3656569b328e04aa37c"
+                "reference": "31d57697eb1971712a08031cfaff5a846d10bdf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/f27e06cd9675801df441b3656569b328e04aa37c",
-                "reference": "f27e06cd9675801df441b3656569b328e04aa37c",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/31d57697eb1971712a08031cfaff5a846d10bdf5",
+                "reference": "31d57697eb1971712a08031cfaff5a846d10bdf5",
                 "shasum": ""
             },
             "require": {
@@ -4631,7 +4631,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/xdebug-handler/issues",
-                "source": "https://github.com/composer/xdebug-handler/tree/1.4.6"
+                "source": "https://github.com/composer/xdebug-handler/tree/2.0.0"
             },
             "funding": [
                 {
@@ -4647,7 +4647,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-25T17:01:18+00:00"
+            "time": "2021-04-09T19:40:06+00:00"
         },
         {
             "name": "danielstjules/stringy",
@@ -5728,16 +5728,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.83",
+            "version": "0.12.84",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "4a967cec6efb46b500dd6d768657336a3ffe699f"
+                "reference": "9c43f15da8798c8f30a4b099e6a94530a558cfd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/4a967cec6efb46b500dd6d768657336a3ffe699f",
-                "reference": "4a967cec6efb46b500dd6d768657336a3ffe699f",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9c43f15da8798c8f30a4b099e6a94530a558cfd5",
+                "reference": "9c43f15da8798c8f30a4b099e6a94530a558cfd5",
                 "shasum": ""
             },
             "require": {
@@ -5768,7 +5768,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.83"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.84"
             },
             "funding": [
                 {
@@ -5784,7 +5784,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-03T15:35:45+00:00"
+            "time": "2021-04-19T17:10:54+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
@@ -6264,21 +6264,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.10.6",
+            "version": "0.10.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "9c147eb846eb28f66adb38683825dbc990fa17ea"
+                "reference": "4064d01f84a7a280d7170dd6eb773a94e1715ded"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/9c147eb846eb28f66adb38683825dbc990fa17ea",
-                "reference": "9c147eb846eb28f66adb38683825dbc990fa17ea",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/4064d01f84a7a280d7170dd6eb773a94e1715ded",
+                "reference": "4064d01f84a7a280d7170dd6eb773a94e1715ded",
                 "shasum": ""
             },
             "require": {
                 "composer/semver": "^3.2",
-                "composer/xdebug-handler": "^1.4",
+                "composer/xdebug-handler": "^1.4|^2.0",
                 "danielstjules/stringy": "^3.1",
                 "doctrine/inflector": "^2.0",
                 "ext-dom": "*",
@@ -6305,16 +6305,16 @@
                 "symfony/http-kernel": "^4.4.8|^5.1",
                 "symfony/process": "^4.4.8|^5.1",
                 "symfony/uid": "^4.4.8|^5.1",
-                "symplify/astral": "^9.2.15",
-                "symplify/autowire-array-parameter": "^9.2.15",
-                "symplify/console-color-diff": "^9.2.15",
-                "symplify/package-builder": "^9.2.15",
-                "symplify/rule-doc-generator-contracts": "^9.2.15",
-                "symplify/set-config-resolver": "^9.2.15",
-                "symplify/simple-php-doc-parser": "^9.2.15",
-                "symplify/skipper": "^9.2.15",
-                "symplify/smart-file-system": "^9.2.15",
-                "symplify/symfony-php-config": "^9.2.15",
+                "symplify/astral": "^9.2.16",
+                "symplify/autowire-array-parameter": "^9.2.16",
+                "symplify/console-color-diff": "^9.2.16",
+                "symplify/package-builder": "^9.2.16",
+                "symplify/rule-doc-generator-contracts": "^9.2.16",
+                "symplify/set-config-resolver": "^9.2.16",
+                "symplify/simple-php-doc-parser": "^9.2.16",
+                "symplify/skipper": "^9.2.16",
+                "symplify/smart-file-system": "^9.2.16",
+                "symplify/symfony-php-config": "^9.2.16",
                 "webmozart/assert": "^1.10"
             },
             "replace": {
@@ -6328,13 +6328,13 @@
                 "phpstan/phpstan-nette": "^0.12.16",
                 "phpunit/phpunit": "^9.5",
                 "rector/rector-generator": "^0.1.5",
-                "symplify/coding-standard": "^9.2.15",
-                "symplify/easy-ci": "^9.2.15",
-                "symplify/easy-coding-standard": "^9.2.15",
-                "symplify/easy-testing": "^9.2.15",
-                "symplify/phpstan-extensions": "^9.2.15",
+                "symplify/coding-standard": "^9.2.16",
+                "symplify/easy-ci": "^9.2.16",
+                "symplify/easy-coding-standard": "^9.2.16",
+                "symplify/easy-testing": "^9.2.16",
+                "symplify/phpstan-extensions": "^9.2.16",
                 "symplify/phpstan-rules": "^9.2",
-                "symplify/rule-doc-generator": "^9.2.15",
+                "symplify/rule-doc-generator": "^9.2.16",
                 "tracy/tracy": "^2.8"
             },
             "bin": [
@@ -6382,7 +6382,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.10.6"
+                "source": "https://github.com/rectorphp/rector/tree/0.10.8"
             },
             "funding": [
                 {
@@ -6390,7 +6390,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-14T02:35:28+00:00"
+            "time": "2021-04-20T19:50:42+00:00"
         },
         {
             "name": "rector/rector-cakephp",
