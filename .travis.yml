@@ -1,8 +1,7 @@
 language: php
 dist: focal
-matrix:
-    include:
-        - php: 8.0
+php:
+    - php: 8.0
 install:
     - composer update --no-interaction
 script:
