@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f26edd3b281c71c9ad04c06962491699",
+    "content-hash": "873560d19a3bf44a1864dc6a64bc2395",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -4815,28 +4815,24 @@
         },
         {
             "name": "jean85/pretty-package-versions",
-            "version": "2.0.3",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jean85/pretty-package-versions.git",
-                "reference": "b2c4ec2033a0196317a467cb197c7c843b794ddf"
+                "reference": "1e0104b46f045868f11942aea058cd7186d6c303"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/b2c4ec2033a0196317a467cb197c7c843b794ddf",
-                "reference": "b2c4ec2033a0196317a467cb197c7c843b794ddf",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/1e0104b46f045868f11942aea058cd7186d6c303",
+                "reference": "1e0104b46f045868f11942aea058cd7186d6c303",
                 "shasum": ""
             },
             "require": {
-                "composer-runtime-api": "^2.0.0",
-                "php": "^7.1|^8.0"
+                "composer/package-versions-deprecated": "^1.8.0",
+                "php": "^7.0|^8.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.17",
-                "jean85/composer-provided-replaced-stub-package": "^1.0",
-                "phpstan/phpstan": "^0.12.66",
-                "phpunit/phpunit": "^7.5|^8.5|^9.4",
-                "vimeo/psalm": "^4.3"
+                "phpunit/phpunit": "^6.0|^8.5|^9.2"
             },
             "type": "library",
             "extra": {
@@ -4859,7 +4855,7 @@
                     "email": "alessandro.lai85@gmail.com"
                 }
             ],
-            "description": "A library to get pretty versions strings of installed dependencies",
+            "description": "A wrapper for ocramius/package-versions to get pretty versions strings",
             "keywords": [
                 "composer",
                 "package",
@@ -4868,9 +4864,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Jean85/pretty-package-versions/issues",
-                "source": "https://github.com/Jean85/pretty-package-versions/tree/2.0.3"
+                "source": "https://github.com/Jean85/pretty-package-versions/tree/1.6.0"
             },
-            "time": "2021-02-22T10:52:38+00:00"
+            "time": "2021-02-04T16:20:16+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -6264,16 +6260,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.10.12",
+            "version": "0.10.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "60da89954e87882898682a10e6f077071201ec16"
+                "reference": "07a0d4edbe542cfac73bb7129b0117bdb11c7050"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/60da89954e87882898682a10e6f077071201ec16",
-                "reference": "60da89954e87882898682a10e6f077071201ec16",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/07a0d4edbe542cfac73bb7129b0117bdb11c7050",
+                "reference": "07a0d4edbe542cfac73bb7129b0117bdb11c7050",
                 "shasum": ""
             },
             "require": {
@@ -6283,7 +6279,7 @@
                 "doctrine/inflector": "^2.0",
                 "ext-dom": "*",
                 "ext-json": "*",
-                "jean85/pretty-package-versions": "^1.5.1|^2.0.1",
+                "jean85/pretty-package-versions": "^1.6",
                 "nette/caching": "^3.1",
                 "nette/robot-loader": "^3.4",
                 "nette/utils": "^3.2",
@@ -6387,7 +6383,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.10.12"
+                "source": "https://github.com/rectorphp/rector/tree/0.10.14"
             },
             "funding": [
                 {
@@ -6395,7 +6391,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-28T21:12:26+00:00"
+            "time": "2021-04-29T09:00:02+00:00"
         },
         {
             "name": "rector/rector-cakephp",
