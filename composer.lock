@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea2e08f9dc93a956e82d7eedc9d30d8b",
+    "content-hash": "f60a62745cba857b4394b4fa09b03960",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -6260,16 +6260,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.10.15",
+            "version": "0.10.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "00fcdc1f03666097084974ba6826f73a1f088a12"
+                "reference": "e6157560c122ca104d1d1b8255f309f6d07c8933"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/00fcdc1f03666097084974ba6826f73a1f088a12",
-                "reference": "00fcdc1f03666097084974ba6826f73a1f088a12",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/e6157560c122ca104d1d1b8255f309f6d07c8933",
+                "reference": "e6157560c122ca104d1d1b8255f309f6d07c8933",
                 "shasum": ""
             },
             "require": {
@@ -6383,7 +6383,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.10.15"
+                "source": "https://github.com/rectorphp/rector/tree/0.10.16"
             },
             "funding": [
                 {
@@ -6391,7 +6391,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-29T15:37:16+00:00"
+            "time": "2021-04-30T08:28:36+00:00"
         },
         {
             "name": "rector/rector-cakephp",
