@@ -19,7 +19,7 @@
     "symfony/framework-bundle": "5.2.7",
     "symfony/http-foundation": "5.2.7",
     "symfony/http-kernel": "5.2.7",
-    "symfony/maker-bundle": "1.30.2",
+    "symfony/maker-bundle": "1.31.0",
     "symfony/options-resolver": "5.2.4",
     "symfony/security-bundle": "5.2.7"
   },
