@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70a04fc7c44a4dd3ddb64246c9ba423e",
+    "content-hash": "d1e97ea8afe967a21950f1fa23e131b4",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -5667,16 +5667,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.11.3",
+            "version": "0.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "9987c84c58d681149363a3e55f5e1c68df16c9f6"
+                "reference": "a6e6ebd58d3da406306f3be3334192998c59f620"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/9987c84c58d681149363a3e55f5e1c68df16c9f6",
-                "reference": "9987c84c58d681149363a3e55f5e1c68df16c9f6",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/a6e6ebd58d3da406306f3be3334192998c59f620",
+                "reference": "a6e6ebd58d3da406306f3be3334192998c59f620",
                 "shasum": ""
             },
             "require": {
@@ -5686,7 +5686,13 @@
             "conflict": {
                 "phpstan/phpdoc-parser": "<=0.5.3",
                 "phpstan/phpstan": "<=0.12.82",
-                "rector/rector-prefixed": "*"
+                "rector/rector-cakephp": "*",
+                "rector/rector-doctrine": "*",
+                "rector/rector-nette": "*",
+                "rector/rector-nette-to-symfony": "*",
+                "rector/rector-phpunit": "*",
+                "rector/rector-prefixed": "*",
+                "rector/rector-symfony": "*"
             },
             "bin": [
                 "bin/rector"
@@ -5709,7 +5715,7 @@
             "description": "Prefixed and PHP 7.1 downgraded version of rector/rector",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.11.3"
+                "source": "https://github.com/rectorphp/rector/tree/0.11.4"
             },
             "funding": [
                 {
@@ -5717,7 +5723,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-05-17T07:55:27+00:00"
+            "time": "2021-05-17T18:51:10+00:00"
         },
         {
             "name": "sebastian/cli-parser",
