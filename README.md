@@ -16,7 +16,7 @@ Baldeweg\Bundle\ExtraBundle\BaldewegExtraBundle::class => ['all' => true],
 
 ## User
 
-Add optional routes to your `src/routes.yaml`. The `me` endpoint gives you some details of the current user. Change your password with the `password` endpoint. For more info have a look into the corresponding classes.
+Add optional routes to your `config/routes.yaml`. The `me` endpoint gives you some details of the current user. Change your password with the `password` endpoint. For more info have a look into the corresponding classes.
 
 ```yaml
 me:
