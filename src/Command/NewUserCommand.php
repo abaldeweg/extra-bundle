@@ -9,12 +9,14 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class NewUserCommand extends Command
 {
     public function __construct(
         private EntityManagerInterface $em,
-        private UserPasswordEncoderInterface $encoder
+        private UserPasswordEncoderInterface $encoder,
+        private ParameterBagInterface $params
     ) {
         parent::__construct();
     }
@@ -27,8 +29,7 @@ class NewUserCommand extends Command
             ->setHelp('This command creates a new user.')
             ->addArgument('name', InputArgument::REQUIRED, 'The name of the user')
             ->addArgument('role', InputArgument::OPTIONAL, 'The role of the user')
-            ->addArgument('password', InputArgument::OPTIONAL, 'The password of the user')
-        ;
+            ->addArgument('password', InputArgument::OPTIONAL, 'The password of the user');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -38,7 +39,8 @@ class NewUserCommand extends Command
         $name = $input->getArgument('name');
         $pass = $input->getArgument('password') ?: bin2hex(random_bytes(6));
 
-        $user = new User();
+        $userclass = $this->params->get('baldeweg_extra.userclass');
+        $user = new $userclass();
         $user->setUsername($name);
         $user->setPassword(
             $this->encoder->encodePassword($user, $pass)
@@ -51,8 +53,8 @@ class NewUserCommand extends Command
         $this->em->flush();
 
         $io->listing([
-            'Username: '.$user->getUsername(),
-            'Password: '.$pass,
+            'Username: ' . $user->getUsername(),
+            'Password: ' . $pass,
         ]);
 
         return Command::SUCCESS;
