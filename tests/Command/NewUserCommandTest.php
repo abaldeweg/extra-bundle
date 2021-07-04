@@ -18,8 +18,12 @@ class NewUserCommandTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        $params = $this->getMockBuilder('\\Symfony\\Component\\DependencyInjection\\ParameterBag\\ParameterBagInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
         $application = new Application();
-        $application->add(new NewUserCommand($em, $encoder));
+        $application->add(new NewUserCommand($em, $encoder, $params));
         $command = $application->find('user:new');
 
         $this->assertEquals(
