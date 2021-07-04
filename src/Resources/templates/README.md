@@ -21,7 +21,7 @@ git clone REPO
 Create the file `.env.local` and `.env.test.local` with the following content. Please fit it to your needs.
 
 ```shell
-DATABASE_URL=mysql://DB_USER:DB_PASSWORD@localhost:3306/DB_NAME
+DATABASE_URL=mysql://DB_USER:DB_PASSWORD@localhost:3306/DB_NAME?serverVersion=8.0
 ```
 
 Then install the composer dependencies and create the database.
