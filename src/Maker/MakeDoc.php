@@ -33,11 +33,7 @@ final class MakeDoc extends AbstractMaker
     public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator): void
     {
         if (!is_file('README.md')) {
-            copy(__DIR__.'/../Resources/templates/README.md', 'README.md');
-        }
-        if (!is_file('bin/setup')) {
-            copy(__DIR__.'/../Resources/templates/setup', 'bin/setup');
-            chmod('bin/setup', 0755);
+            copy(__DIR__ . '/../Resources/templates/README.md', 'README.md');
         }
     }
 }
