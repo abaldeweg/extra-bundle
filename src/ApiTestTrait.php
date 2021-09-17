@@ -17,7 +17,7 @@ trait ApiTestTrait
     {
         $client = $this->clientAdmin;
 
-        $crawler = $client->request(
+        $client->request(
             $method,
             $url,
             $params,
@@ -29,7 +29,7 @@ trait ApiTestTrait
         $this->assertEquals(
             $statusCode,
             $client->getResponse()->getStatusCode(),
-            'Unexpected HTTP status code for method '.$method.' with url '.$url.'!'
+            'Unexpected HTTP status code for method ' . $method . ' with url ' . $url . '!'
         );
 
         return json_decode($client->getResponse()->getContent());
