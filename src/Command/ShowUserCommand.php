@@ -12,8 +12,13 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class ShowUserCommand extends Command
 {
-    public function __construct(private EntityManagerInterface $em, private ParameterBagInterface $params)
+    private EntityManagerInterface $em;
+    private ParameterBagInterface $params;
+
+    public function __construct(EntityManagerInterface $em, ParameterBagInterface $params)
     {
+        $this->em = $em;
+        $this->params = $params;
         parent::__construct();
     }
 
@@ -23,8 +28,7 @@ class ShowUserCommand extends Command
             ->setName('user:show')
             ->setDescription('Shows a user')
             ->setHelp('This command shows a user.')
-            ->addArgument('user', InputArgument::REQUIRED, 'The name of the user')
-        ;
+            ->addArgument('user', InputArgument::REQUIRED, 'The name of the user');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -37,9 +41,9 @@ class ShowUserCommand extends Command
             $input->getArgument('user')
         );
         $io->listing([
-            'Id: '.$user->getId(),
-            'Username: '.$user->getUsername(),
-            'Roles: '.implode(', ', $user->getRoles()),
+            'Id: ' . $user->getId(),
+            'Username: ' . $user->getUsername(),
+            'Roles: ' . implode(', ', $user->getRoles()),
         ]);
 
         return Command::SUCCESS;

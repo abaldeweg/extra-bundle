@@ -11,8 +11,13 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class ListUserCommand extends Command
 {
-    public function __construct(private EntityManagerInterface $em, private ParameterBagInterface $params)
+    private EntityManagerInterface $em;
+    private ParameterBagInterface $params;
+
+    public function __construct(EntityManagerInterface $em, ParameterBagInterface $params)
     {
+        $this->em = $em;
+        $this->params = $params;
         parent::__construct();
     }
 
@@ -21,8 +26,7 @@ class ListUserCommand extends Command
         $this
             ->setName('user:list')
             ->setDescription('Find and show all users')
-            ->setHelp('This command finds and shows all users.')
-        ;
+            ->setHelp('This command finds and shows all users.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

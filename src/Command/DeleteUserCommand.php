@@ -12,8 +12,13 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class DeleteUserCommand extends Command
 {
-    public function __construct(private EntityManagerInterface $em, private ParameterBagInterface $params)
+    private EntityManagerInterface $em;
+    private ParameterBagInterface $params;
+
+    public function __construct(EntityManagerInterface $em, ParameterBagInterface $params)
     {
+        $this->em = $em;
+        $this->params = $params;
         parent::__construct();
     }
 
@@ -23,8 +28,7 @@ class DeleteUserCommand extends Command
             ->setName('user:delete')
             ->setDescription('Deletes a user')
             ->setHelp('This command deletes a user.')
-            ->addArgument('id', InputArgument::REQUIRED, 'The id of the user')
-        ;
+            ->addArgument('id', InputArgument::REQUIRED, 'The id of the user');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

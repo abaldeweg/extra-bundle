@@ -13,11 +13,18 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class NewUserCommand extends Command
 {
+    private EntityManagerInterface $em;
+    private UserPasswordEncoderInterface $encoder;
+    private ParameterBagInterface $params;
+
     public function __construct(
-        private EntityManagerInterface $em,
-        private UserPasswordEncoderInterface $encoder,
-        private ParameterBagInterface $params
+        EntityManagerInterface $em,
+        UserPasswordEncoderInterface $encoder,
+        ParameterBagInterface $params
     ) {
+        $this->em = $em;
+        $this->encoder = $encoder;
+        $this->params = $params;
         parent::__construct();
     }
 
