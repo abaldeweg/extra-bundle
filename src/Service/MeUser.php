@@ -9,8 +9,13 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class MeUser
 {
-    public function __construct(private TokenStorageInterface $token, private AuthorizationCheckerInterface $auth)
+    private TokenStorageInterface $token;
+    private AuthorizationCheckerInterface $auth;
+
+    public function __construct(TokenStorageInterface $token,  AuthorizationCheckerInterface $auth)
     {
+        $this->token = $token;
+        $this->auth = $auth;
     }
 
     protected function getUser()
