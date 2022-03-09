@@ -67,6 +67,8 @@ class PasswordUserTest extends TestCase
         $request = $this->getMockBuilder('\\Symfony\\Component\\HttpFoundation\\Request')
             ->disableOriginalConstructor()
             ->getMock();
+        $request->method('getContent')
+            ->willReturn('{}');
 
         $password = new PasswordUser($tokenStorage, $auth, $encoder, $manager, $form);
 
