@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:8.0-node-browsers
+      - image: circleci/php:8.1-node-browsers
     steps:
       - checkout
       - run: sudo docker-php-ext-install zip
