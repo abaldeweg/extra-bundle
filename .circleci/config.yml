@@ -2,10 +2,9 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:8.0-node-browsers
+      - image: cimg/php:8.1-browsers
     steps:
       - checkout
-      - run: sudo docker-php-ext-install zip
       - run: sudo apt update
       - restore_cache:
           keys:
