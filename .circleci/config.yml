@@ -5,7 +5,6 @@ jobs:
       - image: cimg/php:8.1-browsers
     steps:
       - checkout
-      - run: sudo docker-php-ext-install zip
       - run: sudo apt update
       - restore_cache:
           keys:
