@@ -7,17 +7,16 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class Configuration implements ConfigurationInterface
 {
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('baldeweg_extra');
 
         $treeBuilder->getRootNode()
             ->children()
-                ->scalarNode('userclass')
-                    ->defaultValue('App\\Entity\\User')
-                ->end()
+            ->scalarNode('userclass')
+            ->defaultValue('App\\Entity\\User')
             ->end()
-        ;
+            ->end();
 
         return $treeBuilder;
     }

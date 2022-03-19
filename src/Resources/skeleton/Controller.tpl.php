@@ -9,40 +9,39 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Persistence\ManagerRegistry;
 
-/**
- * @Route("/api/<?= $name_lowercase; ?>")
- */
+#[Route(path: '/api/<?= $name_lowercase; ?>')]
 class <?= $class_name ?> extends AbstractApiController
 {
     private $fields = [];
 
     /**
-     * @Route("/", methods={"GET"})
      * @Security("is_granted('ROLE_USER')")
      */
-    public function index(): JsonResponse
+    #[Route(path: '/', methods: ['GET'])]
+    public function index(ManagerRegistry $manager): JsonResponse
     {
         return $this->setResponse()->collection(
             $this->fields,
-            $this->getDoctrine()->getRepository(<?= $entity; ?>::class)->findAll()
+            $manager->getRepository(<?= $entity; ?>::class)->findAll()
         );
     }
 
     /**
-     * @Route("/{<?= $name_lowercase; ?>}", methods={"GET"})
      * @Security("is_granted('ROLE_USER')")
      */
+    #[Route(path: '/{<?= $name_lowercase; ?>}', methods: ['GET'])]
     public function show(<?= $entity; ?> $<?= $name_lowercase; ?>): JsonResponse
     {
         return $this->setResponse()->single($this->fields, $<?= $name_lowercase; ?>);
     }
 
     /**
-     * @Route("/new", methods={"POST"})
      * @Security("is_granted('ROLE_USER')")
      */
-    public function new(Request $request): JsonResponse
+    #[Route(path: '/new', methods: ['POST'])]
+    public function new(Request $request, ManagerRegistry $manager): JsonResponse
     {
         $<?= $name_lowercase; ?> = new <?= $entity; ?>();
         $form = $this->createForm(<?= $entity; ?>Type::class, $<?= $name_lowercase; ?>);
@@ -51,7 +50,7 @@ class <?= $class_name ?> extends AbstractApiController
             $this->submitForm($request)
         );
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $em = $manager->getManager();
             $em->persist($<?= $name_lowercase; ?>);
             $em->flush();
 
@@ -62,10 +61,10 @@ class <?= $class_name ?> extends AbstractApiController
     }
 
     /**
-     * @Route("/{<?= $name_lowercase; ?>}", methods={"PUT"})
      * @Security("is_granted('ROLE_USER')")
      */
-    public function edit(Request $request, <?= $entity; ?> $<?= $name_lowercase; ?>): JsonResponse
+    #[Route(path: '/{<?= $name_lowercase; ?>}', methods: ['PUT'])]
+    public function edit(<?= $entity; ?> $<?= $name_lowercase; ?>, Request $request, ManagerRegistry $manager): JsonResponse
     {
         $form = $this->createForm(<?= $entity; ?>Type::class, $<?= $name_lowercase; ?>);
 
@@ -73,7 +72,7 @@ class <?= $class_name ?> extends AbstractApiController
             $this->submitForm($request)
         );
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $em = $manager->getManager();
             $em->flush();
 
             return $this->setResponse()->single($this->fields, $<?= $name_lowercase; ?>);
@@ -83,12 +82,12 @@ class <?= $class_name ?> extends AbstractApiController
     }
 
     /**
-     * @Route("/{<?= $name_lowercase; ?>}", methods={"DELETE"})
      * @Security("is_granted('ROLE_USER')")
      */
-    public function delete(<?= $entity; ?> $<?= $name_lowercase; ?>): JsonResponse
+    #[Route(path: '/{<?= $name_lowercase; ?>}', methods: ['DELETE'])]
+    public function delete(<?= $entity; ?> $<?= $name_lowercase; ?>, ManagerRegistry $manager): JsonResponse
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $manager->getManager();
         $em->remove($<?= $name_lowercase; ?>);
         $em->flush();
 

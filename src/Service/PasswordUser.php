@@ -10,21 +10,21 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class PasswordUser
 {
     private TokenStorageInterface $token;
     private AuthorizationCheckerInterface $auth;
-    private UserPasswordEncoderInterface $encoder;
+    private UserPasswordHasherInterface $encoder;
     private ManagerRegistry $registry;
     private FormFactoryInterface $form;
 
     public function __construct(
         TokenStorageInterface $token,
         AuthorizationCheckerInterface $auth,
-        UserPasswordEncoderInterface $encoder,
+        UserPasswordHasherInterface $encoder,
         ManagerRegistry $registry,
         FormFactoryInterface $form
     ) {
