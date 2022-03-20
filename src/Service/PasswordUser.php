@@ -85,7 +85,7 @@ class PasswordUser
 
             return new JsonResponse([
                 'id' => $this->getUser()->getId(),
-                'username' => $this->getUser()->getUsername(),
+                'username' => $this->getUser()->getUserIdentifier(),
                 'roles' => $this->getUser()->getRoles(),
                 'isUser' => $this->isGranted('ROLE_USER'),
                 'isAdmin' => $this->isGranted('ROLE_ADMIN'),

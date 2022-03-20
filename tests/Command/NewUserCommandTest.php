@@ -6,12 +6,14 @@ use Baldeweg\Bundle\ExtraBundle\Command\NewUserCommand;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class NewUserCommandTest extends TestCase
 {
     public function testExecute()
     {
-        $em = $this->getMockBuilder('\\Doctrine\\ORM\\EntityManagerInterface')
+        $em = $this->getMockBuilder(EntityManagerInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -19,7 +21,7 @@ class NewUserCommandTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $params = $this->getMockBuilder('\\Symfony\\Component\\DependencyInjection\\ParameterBag\\ParameterBagInterface')
+        $params = $this->getMockBuilder(ParameterBagInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

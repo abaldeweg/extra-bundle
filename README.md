@@ -37,18 +37,6 @@ baldeweg_extra:
   userclass: App\Entity\User
 ```
 
-## test Trait
+## Maker
 
-To make XHR requests easier, there is an `ApiTestTrait` trait available for use.
-
-```php
-use \Baldeweg\Bundle\ExtraBundle\ApiTestTrait;
-```
-
-## Doc
-
-Create `README.md` and `bin/setup` with the following command. Existing files wont be overridden.
-
-```shell
-bin/console make:extra:doc
-```
+- make:extra:subscriber - Create a Subscriber

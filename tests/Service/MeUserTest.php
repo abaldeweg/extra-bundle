@@ -4,35 +4,40 @@ namespace Baldeweg\Bundle\ExtraBundle\Tests;
 
 use Baldeweg\Bundle\ExtraBundle\Service\MeUser;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class MeUserTest extends TestCase
 {
     public function testMeUser()
     {
-        $user = $this->getMockBuilder('\\Symfony\\Component\\Security\\Core\\User\\UserInterface')
-            ->setMethods(['getId', 'getRoles', 'getPassword', 'getSalt', 'getUsername', 'eraseCredentials'])
+        $user = $this->getMockBuilder(UserInterface::class)
+            ->addMethods(['getId', 'getUserIdentifier'])
+            ->onlyMethods(['getRoles', 'getPassword', 'getSalt', 'getUsername','eraseCredentials'])
             ->disableOriginalConstructor()
             ->getMock();
         $user->method('getId')
             ->willReturn('1');
-        $user->method('getUsername')
+        $user->method('getUserIdentifier')
             ->willReturn('admin');
         $user->method('getRoles')
             ->willReturn('ROLE_USER');
 
-        $token = $this->getMockBuilder('\\Symfony\\Component\\Security\\Core\\Authentication\\Token\\TokenInterface')
+        $token = $this->getMockBuilder(TokenInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $token->method('getUser')
             ->willReturn($user);
 
-        $tokenStorage = $this->getMockBuilder('\\Symfony\\Component\\Security\\Core\\Authentication\\Token\\Storage\\TokenStorageInterface')
+        $tokenStorage = $this->getMockBuilder(TokenStorageInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $tokenStorage->method('getToken')
             ->willReturn($token);
 
-        $auth = $this->getMockBuilder('\\Symfony\\Component\\Security\\Core\\Authorization\\AuthorizationCheckerInterface')
+        $auth = $this->getMockBuilder(AuthorizationCheckerInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $auth->method('isGranted')

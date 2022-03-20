@@ -6,31 +6,40 @@ use Baldeweg\Bundle\ExtraBundle\Service\PasswordUser;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class PasswordUserTest extends TestCase
 {
     public function testPasswordUser()
     {
         $user = $this->getMockBuilder(PasswordAuthenticatedUserInterface::class)
-            ->setMethods(['getId', 'setPassword', 'getRoles', 'getPassword', 'getSalt', 'getUsername', 'eraseCredentials'])
+            ->addMethods(['getId', 'setPassword', 'getUserIdentifier', 'getRoles', 'getSalt', 'getUsername', 'eraseCredentials'])
+            ->onlyMethods(['getPassword'])
             ->disableOriginalConstructor()
             ->getMock();
         $user->method('getPassword')
             ->willReturn('password');
 
-        $token = $this->getMockBuilder('\\Symfony\\Component\\Security\\Core\\Authentication\\Token\\TokenInterface')
+        $token = $this->getMockBuilder(TokenInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $token->method('getUser')
             ->willReturn($user);
 
-        $tokenStorage = $this->getMockBuilder('\\Symfony\\Component\\Security\\Core\\Authentication\\Token\\Storage\\TokenStorageInterface')
+        $tokenStorage = $this->getMockBuilder(TokenStorageInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $tokenStorage->method('getToken')
             ->willReturn($token);
 
-        $auth = $this->getMockBuilder('\\Symfony\\Component\\Security\\Core\\Authorization\\AuthorizationCheckerInterface')
+        $auth = $this->getMockBuilder(AuthorizationCheckerInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $auth->method('isGranted')
@@ -42,17 +51,17 @@ class PasswordUserTest extends TestCase
         $encoder->method('hashPassword')
             ->willReturn('password');
 
-        $object = $this->getMockBuilder('\\Doctrine\\Persistence\\ObjectManager')
+        $object = $this->getMockBuilder(ObjectManager::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $manager = $this->getMockBuilder('\\Doctrine\\Persistence\\ManagerRegistry')
+        $manager = $this->getMockBuilder(ManagerRegistry::class)
             ->disableOriginalConstructor()
             ->getMock();
         $manager->method('getManager')
             ->willReturn($object);
 
-        $formInterface = $this->getMockBuilder('\\Symfony\\Component\\Form\\FormInterface')
+        $formInterface = $this->getMockBuilder(FormInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $formInterface->method('isSubmitted')
@@ -60,13 +69,13 @@ class PasswordUserTest extends TestCase
         $formInterface->method('isValid')
             ->willReturn(true);
 
-        $form = $this->getMockBuilder('\\Symfony\\Component\\Form\\FormFactoryInterface')
+        $form = $this->getMockBuilder(FormFactoryInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $form->method('create')
             ->willReturn($formInterface);
 
-        $request = $this->getMockBuilder('\\Symfony\\Component\\HttpFoundation\\Request')
+        $request = $this->getMockBuilder(Request::class)
             ->disableOriginalConstructor()
             ->getMock();
         $request->method('getContent')

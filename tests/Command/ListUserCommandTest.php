@@ -5,16 +5,18 @@ namespace Baldeweg\Bundle\ExtraBundle\Tests\Command;
 use PHPUnit\Framework\TestCase;
 use Baldeweg\Bundle\ExtraBundle\Command\ListUserCommand;
 use Symfony\Component\Console\Application;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class ListUserCommandTest extends TestCase
 {
     public function testExecute()
     {
-        $em = $this->getMockBuilder('\\Doctrine\\ORM\\EntityManagerInterface')
+        $em = $this->getMockBuilder(EntityManagerInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $params = $this->getMockBuilder('\\Symfony\\Component\\DependencyInjection\\ParameterBag\\ParameterBagInterface')
+        $params = $this->getMockBuilder(ParameterBagInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
