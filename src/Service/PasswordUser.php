@@ -76,7 +76,7 @@ class PasswordUser
         );
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setPassword(
-                $this->encoder->encodePassword(
+                $this->encoder->hashPassword(
                     $user,
                     $user->getPassword()
                 )

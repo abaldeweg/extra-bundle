@@ -5,6 +5,7 @@ namespace Baldeweg\Bundle\ExtraBundle\Tests\Command;
 use Baldeweg\Bundle\ExtraBundle\Command\ResetPasswordUserCommand;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class ResetPasswordUserCommandTest extends TestCase
 {
@@ -14,7 +15,7 @@ class ResetPasswordUserCommandTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $encoder = $this->getMockBuilder('\\Symfony\\Component\\Security\\Core\\Encoder\\UserPasswordEncoderInterface')
+        $encoder = $this->getMockBuilder(UserPasswordHasherInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 

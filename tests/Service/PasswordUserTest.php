@@ -4,12 +4,14 @@ namespace Baldeweg\Bundle\ExtraBundle\Tests;
 
 use Baldeweg\Bundle\ExtraBundle\Service\PasswordUser;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 class PasswordUserTest extends TestCase
 {
     public function testPasswordUser()
     {
-        $user = $this->getMockBuilder('\\Symfony\\Component\\Security\\Core\\User\\UserInterface')
+        $user = $this->getMockBuilder(PasswordAuthenticatedUserInterface::class)
             ->setMethods(['getId', 'setPassword', 'getRoles', 'getPassword', 'getSalt', 'getUsername', 'eraseCredentials'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -34,10 +36,10 @@ class PasswordUserTest extends TestCase
         $auth->method('isGranted')
             ->willReturn(true);
 
-        $encoder = $this->getMockBuilder('\\Symfony\\Component\\Security\\Core\\Encoder\\UserPasswordEncoderInterface')
+        $encoder = $this->getMockBuilder(UserPasswordHasherInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $encoder->method('encodePassword')
+        $encoder->method('hashPassword')
             ->willReturn('password');
 
         $object = $this->getMockBuilder('\\Doctrine\\Persistence\\ObjectManager')
