@@ -50,7 +50,7 @@ class NewUserCommand extends Command
         $user = new $userclass();
         $user->setUsername($name);
         $user->setPassword(
-            $this->encoder->encodePassword($user, $pass)
+            $this->encoder->hashPassword($user, $pass)
         );
         $user->setRoles([
             $input->getArgument('role') ?: 'ROLE_USER',

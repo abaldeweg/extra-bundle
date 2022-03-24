@@ -48,7 +48,7 @@ class ResetPasswordUserCommand extends Command
         );
         $pass = bin2hex(random_bytes(6));
         $user->setPassword(
-            $this->encoder->encodePassword($user, $pass)
+            $this->encoder->hashPassword($user, $pass)
         );
         $this->em->flush();
 
