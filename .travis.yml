@@ -1,8 +1,0 @@
-language: php
-dist: focal
-php:
-    - '8.0'
-install:
-    - composer update --no-interaction
-script:
-    - ./vendor/bin/phpunit -v
