@@ -2,6 +2,7 @@
 
 namespace Baldeweg\Bundle\ExtraBundle\Service;
 
+use Symfony\Component\HttpFoundation\Response;
 use Baldeweg\Bundle\ExtraBundle\Form\PasswordType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -15,24 +16,8 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class PasswordUser
 {
-    private TokenStorageInterface $token;
-    private AuthorizationCheckerInterface $auth;
-    private UserPasswordHasherInterface $encoder;
-    private ManagerRegistry $registry;
-    private FormFactoryInterface $form;
-
-    public function __construct(
-        TokenStorageInterface $token,
-        AuthorizationCheckerInterface $auth,
-        UserPasswordHasherInterface $encoder,
-        ManagerRegistry $registry,
-        FormFactoryInterface $form
-    ) {
-        $this->token = $token;
-        $this->auth = $auth;
-        $this->encoder = $encoder;
-        $this->registry = $registry;
-        $this->form = $form;
+    public function __construct(private readonly TokenStorageInterface $token, private readonly AuthorizationCheckerInterface $auth, private readonly UserPasswordHasherInterface $encoder, private readonly ManagerRegistry $registry, private readonly FormFactoryInterface $form)
+    {
     }
 
     protected function getUser()
@@ -94,6 +79,6 @@ class PasswordUser
 
         return new JsonResponse([
             'msg' => 'The password could not be changed!',
-        ], 400);
+        ], Response::HTTP_BAD_REQUEST);
     }
 }

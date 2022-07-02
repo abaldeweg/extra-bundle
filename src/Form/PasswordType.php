@@ -9,11 +9,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PasswordType extends AbstractType
 {
-    private ParameterBagInterface $params;
-
-    public function __construct(ParameterBagInterface $params)
+    public function __construct(private readonly ParameterBagInterface $params)
     {
-        $this->params = $params;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void

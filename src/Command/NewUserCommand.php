@@ -13,26 +13,18 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class NewUserCommand extends Command
 {
-    private EntityManagerInterface $em;
-    private UserPasswordHasherInterface $encoder;
-    private ParameterBagInterface $params;
-
+    protected static $defaultName = 'user:new';
     public function __construct(
-        EntityManagerInterface $em,
-        UserPasswordHasherInterface $encoder,
-        ParameterBagInterface $params
+        private readonly EntityManagerInterface $em,
+        private readonly UserPasswordHasherInterface $encoder,
+        private readonly ParameterBagInterface $params
     ) {
-        $this->em = $em;
-        $this->encoder = $encoder;
-        $this->params = $params;
         parent::__construct();
     }
 
     protected function configure(): void
     {
-        $this
-            ->setName('user:new')
-            ->setDescription('Creates a new user.')
+        $this->setDescription('Creates a new user.')
             ->setHelp('This command creates a new user.')
             ->addArgument('name', InputArgument::REQUIRED, 'The name of the user')
             ->addArgument('role', InputArgument::OPTIONAL, 'The role of the user')

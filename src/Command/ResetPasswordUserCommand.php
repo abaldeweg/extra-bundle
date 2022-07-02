@@ -13,26 +13,18 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class ResetPasswordUserCommand extends Command
 {
-    private EntityManagerInterface $em;
-    private UserPasswordHasherInterface $encoder;
-    private ParameterBagInterface $params;
-
+    protected static $defaultName = 'user:reset-password';
     public function __construct(
-        EntityManagerInterface $em,
-        UserPasswordHasherInterface $encoder,
-        ParameterBagInterface $params
+        private readonly EntityManagerInterface $em,
+        private readonly UserPasswordHasherInterface $encoder,
+        private readonly ParameterBagInterface $params
     ) {
-        $this->em = $em;
-        $this->encoder = $encoder;
-        $this->params = $params;
         parent::__construct();
     }
 
     protected function configure(): void
     {
-        $this
-            ->setName('user:reset-password')
-            ->setDescription('Resets the password of a user.')
+        $this->setDescription('Resets the password of a user.')
             ->setHelp('This command resets the password of a user.')
             ->addArgument('id', InputArgument::REQUIRED, 'The id of the user');
     }

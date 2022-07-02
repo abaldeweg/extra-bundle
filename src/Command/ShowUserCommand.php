@@ -12,21 +12,15 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class ShowUserCommand extends Command
 {
-    private EntityManagerInterface $em;
-    private ParameterBagInterface $params;
-
-    public function __construct(EntityManagerInterface $em, ParameterBagInterface $params)
+    protected static $defaultName = 'user:show';
+    public function __construct(private readonly EntityManagerInterface $em, private readonly ParameterBagInterface $params)
     {
-        $this->em = $em;
-        $this->params = $params;
         parent::__construct();
     }
 
     protected function configure(): void
     {
-        $this
-            ->setName('user:show')
-            ->setDescription('Shows a user')
+        $this->setDescription('Shows a user')
             ->setHelp('This command shows a user.')
             ->addArgument('user', InputArgument::REQUIRED, 'The name of the user');
     }
