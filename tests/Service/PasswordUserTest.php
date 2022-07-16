@@ -14,14 +14,21 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class PasswordUserTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testPasswordUser()
     {
-        $user = $this->getMockBuilder(PasswordAuthenticatedUserInterface::class)
-            ->addMethods(['getId', 'setPassword', 'getUserIdentifier', 'getRoles', 'getSalt', 'getUsername', 'eraseCredentials'])
-            ->onlyMethods(['getPassword'])
+        $auth = $this->prophesize(UserInterface::class)
+            ->willImplement(PasswordAuthenticatedUserInterface::class)->reveal();
+
+        $user = $this->getMockBuilder($auth::class)
+            ->addMethods(['getId', 'setPassword', 'getSalt', 'getUsername'])
+            ->onlyMethods(['getUserIdentifier', 'getRoles', 'eraseCredentials', 'getPassword'])
             ->disableOriginalConstructor()
             ->getMock();
         $user->method('getPassword')

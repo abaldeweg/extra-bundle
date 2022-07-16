@@ -14,8 +14,8 @@ class MeUserTest extends TestCase
     public function testMeUser()
     {
         $user = $this->getMockBuilder(UserInterface::class)
-            ->addMethods(['getId', 'getUserIdentifier'])
-            ->onlyMethods(['getRoles', 'getPassword', 'getSalt', 'getUsername','eraseCredentials'])
+            ->addMethods(['getId', 'getPassword', 'getSalt', 'getUsername'])
+            ->onlyMethods(['getRoles', 'eraseCredentials', 'getUserIdentifier'])
             ->disableOriginalConstructor()
             ->getMock();
         $user->method('getId')
@@ -23,7 +23,7 @@ class MeUserTest extends TestCase
         $user->method('getUserIdentifier')
             ->willReturn('admin');
         $user->method('getRoles')
-            ->willReturn('ROLE_USER');
+            ->willReturn(['ROLE_USER']);
 
         $token = $this->getMockBuilder(TokenInterface::class)
             ->disableOriginalConstructor()
@@ -50,7 +50,7 @@ class MeUserTest extends TestCase
         $this->assertIsObject($response);
         $this->assertIsString($response->id);
         $this->assertIsString($response->username);
-        $this->assertIsString($response->roles);
+        $this->assertIsArray($response->roles);
         $this->assertIsBool($response->isUser);
         $this->assertIsBool($response->isAdmin);
     }
